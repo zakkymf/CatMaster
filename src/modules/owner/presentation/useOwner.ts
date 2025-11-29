@@ -69,6 +69,7 @@ export function useOwner() {
     try {
       await makeMasterMutation(item?.id);
       await getOwner();
+      Alert.alert('Success', 'Master added successfully');
     } catch (error) {
       Alert.alert('Error', error as string);
     }
@@ -78,6 +79,7 @@ export function useOwner() {
     try {
       await addFavoriteMutation(item.id);
       await getOwner();
+      Alert.alert('Success', 'Favorite added successfully');
     } catch (error) {
       Alert.alert('Error', error as string);
     }
