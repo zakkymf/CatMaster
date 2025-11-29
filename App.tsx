@@ -1,19 +1,45 @@
-import { QueryClientProvider } from '@tanstack/react-query';
-import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { queryClient } from './src/shared/libraries';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {NavigationContainer} from '@react-navigation/native';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import Navigation from './src/navigation/Navigation';
+import {StatusBar, StyleSheet} from 'react-native';
+import {Colors} from './src/shared/theme';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    mutations: {
+      networkMode: 'always',
+      retry: false,
+    },
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 function App() {
   return (
-    <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-        <NavigationContainer>
-          <Navigation />
-        </NavigationContainer>
-      </QueryClientProvider>
-    </SafeAreaProvider>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.safeArea}>
+          <StatusBar
+            barStyle="dark-content"
+            backgroundColor={Colors.background}
+          />
+          <NavigationContainer>
+            <Navigation />
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: Colors.background,
+  },
+});
 
 export default App;
