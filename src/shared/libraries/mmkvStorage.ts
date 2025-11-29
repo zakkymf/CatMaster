@@ -1,12 +1,8 @@
-import Config from 'react-native-config';
 import {MMKV} from 'react-native-mmkv';
 
 import type {StateStorage} from 'zustand/middleware';
 
-const storage = new MMKV({
-  id: 'SiCepat-Ekspres-Storage',
-  encryptionKey: Config.MMKV_ENCRYPTION_KEY,
-});
+const storage = new MMKV();
 
 export const mmkvStorage: StateStorage = {
   setItem: (name, value) => {

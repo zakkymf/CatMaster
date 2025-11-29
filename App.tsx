@@ -4,18 +4,7 @@ import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import Navigation from './src/navigation/Navigation';
 import {StatusBar, StyleSheet} from 'react-native';
 import {Colors} from './src/shared/theme';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    mutations: {
-      networkMode: 'always',
-      retry: false,
-    },
-    queries: {
-      retry: false,
-    },
-  },
-});
+import {queryClient} from './src/shared/libraries';
 
 function App() {
   return (

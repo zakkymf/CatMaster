@@ -8,6 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 
 type HeaderProps = {
   title: string;
+  initial?: string;
   showBackButton?: boolean;
   headerRight?: React.ReactNode;
   onBackPress?: () => void;
@@ -15,6 +16,7 @@ type HeaderProps = {
 
 export const Header: React.FC<HeaderProps> = ({
   title,
+  initial,
   showBackButton = true,
   headerRight,
   onBackPress,
@@ -41,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({
       <View style={BaseStyles.rowCenter}>
         <View style={styles.avatar}>
           <StaticText variant="bold" color={Colors.erin_primary_green}>
-            {getInitials(title)}
+            {getInitials(initial || '')}
           </StaticText>
         </View>
         <StaticText color={Colors.gray} style={styles.title}>

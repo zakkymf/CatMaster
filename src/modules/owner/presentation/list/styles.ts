@@ -10,5 +10,9 @@ export const styles = StyleSheet.create({
   },
   list: {
     marginTop: 24,
+    backgroundColor: Colors.background,
+  },
+  listContent: {
+    marginBottom: 20,
   },
 });
