@@ -9,6 +9,8 @@
     "android:production": "ENV=.env.production react-native run-android --mode=productiondebug",
     "ios:staging": "ENV=.env.staging react-native run-ios --scheme 'CatMasterStaging'",
     "ios:production": "ENV=.env.production react-native run-ios --scheme 'CatMaster'",
+    "android:build-staging": "ENV=.env.staging cd android && ./gradlew assembleStagingRelease",
+    "android:build-production": "ENV=.env.production cd android && ./gradlew assembleProductionRelease",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"
